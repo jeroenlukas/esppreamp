@@ -39,6 +39,8 @@ void adau1701_set_gain(float gain)
     // enable dist
     dsp.safeload_write(MOD_DSPDISTORTION_BYPASS_ALG0_MONOSWSLEW_ADDR, 0);
     dsp.gain(MOD_DSPDISTORTION_GAIN1_GAIN1940ALGNS3_ADDR, gain);
+    dsp.gain(MOD_DSPDISTORTION_GAIN2_GAIN1940ALGNS5_ADDR, gain);
+    dsp.gain(MOD_DSPDISTORTION_GAIN3_GAIN1940ALGNS6_ADDR, gain);
     //dsp.volume_slew(MOD_PO_VOLUME_ALG0_TARGET_ADDR, gain, 12);
     
     
