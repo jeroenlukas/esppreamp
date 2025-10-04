@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- *
+ * This software is distributed in the hope that it will be useful,
+ * but is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * This software may only be used to program products purchased from
+ * Analog Devices for incorporation by you into audio products that
+ * are intended for resale to audio product end users. This software
+ * may not be distributed whole or in any part to third parties.
+ *
+ * Copyright © 2025 Analog Devices, Inc. All rights reserved.
+ */
+-->
+<!--NetList XML file-->
+<NetList>
+    <IC name=" IC 1 " type="DSPSigma100">
+        <Schematic>
+            <Algorithm name="DCInpAlg1" friendlyname="dc Input " cell="DSPDistortion.ASYMMETRY " location="{X=461, Y=187} " Growth="0 " GrowthB="0 " FS="48000">
+                <Link pin="O_C26_A0_P1_out" dir="out" link="Link6" />
+            </Algorithm>
+            <Algorithm name="ICSigma100In1" friendlyname="170x\140x input " cell="Input1 " location="{X=15, Y=361} " Growth="10 " GrowthB="0 " FS="48000">
+                <Link pin="O_C0_A0_P1_out" dir="out" link="Link13" />
+            </Algorithm>
+            <Algorithm name="Gain1940AlgNS1" friendlyname="Gain (no slew) " cell="Gain1 " location="{X=100, Y=280} " Growth="0 " GrowthB="0">
+                <Link pin="I_C14_A0_P1_in" dir="in" link="Link13" />
+                <Link pin="O_C14_A0_P2_out" dir="out" link="Link25" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle3" friendlyname="1st order filter " cell="PreGain.LOWCUT " location="{X=580, Y=249} " Growth="1 " GrowthB="0">
+                <Link pin="I_C79_A0_P1_in" dir="in" link="Link25" />
+                <Link pin="O_C79_A0_P2_out" dir="out" link="Link26" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle4" friendlyname="1st order filter " cell="PreGain.LOWCUT2 " location="{X=728, Y=250} " Growth="1 " GrowthB="0">
+                <Link pin="I_C84_A0_P1_in" dir="in" link="Link26" />
+                <Link pin="O_C84_A0_P2_out" dir="out" link="Link27" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle7" friendlyname="1st order filter " cell="PreGain.LOWCUT3 " location="{X=855, Y=249} " Growth="1 " GrowthB="0">
+                <Link pin="I_C176_A0_P1_in" dir="in" link="Link27" />
+                <Link pin="O_C176_A0_P2_out" dir="out" link="Link28" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle8" friendlyname="1st order filter " cell="PreGain.LOWCUT4 " location="{X=999, Y=249} " Growth="1 " GrowthB="0">
+                <Link pin="I_C190_A0_P1_in" dir="in" link="Link28" />
+                <Link pin="O_C190_A0_P2_out" dir="out" link="Link11" />
+            </Algorithm>
+            <Algorithm name="monoMuxSwSlew4" friendlyname="Mono SW Slew " cell="PreGain.ORDER " location="{X=1155, Y=110} " Growth="4 " GrowthB="0">
+                <Link pin="I_C122_A0_P2_in" dir="in" link="Link26" />
+                <Link pin="I_C122_A0_P3_in" dir="in" link="Link27" />
+                <Link pin="I_C122_A0_P4_in" dir="in" link="Link28" />
+                <Link pin="I_C122_A0_P5_in" dir="in" link="Link11" />
+                <Link pin="O_C122_A0_P1_out" dir="out" link="Link12" />
+            </Algorithm>
+            <Algorithm name="monomux1940ns2" friendlyname="Mono " cell="PreGain.BYPASS " location="{X=1260, Y=517} " Growth="2 " GrowthB="0">
+                <Link pin="I_C178_A0_P2_in" dir="in" link="Link12" />
+                <Link pin="I_C178_A0_P3_in" dir="in" link="Link25" />
+                <Link pin="O_C178_A0_P1_out" dir="out" link="Link24" />
+            </Algorithm>
+            <Algorithm name="Gain1940AlgNS3" friendlyname="Gain (no slew) " cell="DSPDistortion.GAIN1 " location="{X=248, Y=339} " Growth="0 " GrowthB="0">
+                <Link pin="I_C163_A0_P1_in" dir="in" link="Link24" />
+                <Link pin="O_C163_A0_P2_out" dir="out" link="Link4" />
+            </Algorithm>
+            <Algorithm name="Gain1940AlgNS5" friendlyname="Gain (no slew) " cell="DSPDistortion.GAIN2 " location="{X=331, Y=338} " Growth="0 " GrowthB="0">
+                <Link pin="I_C325_A0_P1_in" dir="in" link="Link4" />
+                <Link pin="O_C325_A0_P2_out" dir="out" link="Link9" />
+            </Algorithm>
+            <Algorithm name="Gain1940AlgNS6" friendlyname="Gain (no slew) " cell="DSPDistortion.GAIN3 " location="{X=428, Y=337} " Growth="0 " GrowthB="0">
+                <Link pin="I_C64_A0_P1_in" dir="in" link="Link9" />
+                <Link pin="O_C64_A0_P2_out" dir="out" link="Link10" />
+            </Algorithm>
+            <Algorithm name="NxNMixer1940Alg1" friendlyname="NxM Ctrl Mixer " cell="DSPDistortion.NxM Mixer1 " location="{X=562, Y=328} " Growth="2 " GrowthB="1">
+                <Link pin="I_C45_A0_P2_in" dir="in" link="Link6" />
+                <Link pin="I_C45_A0_P3_in" dir="in" link="Link10" />
+                <Link pin="O_C45_A0_P1_out" dir="out" link="Link5" />
+            </Algorithm>
+            <Algorithm name="SoftClipAlgG21" friendlyname="Soft Clip " cell="DSPDistortion.SoftClip1 " location="{X=658, Y=331} " Growth="1 " GrowthB="0">
+                <Link pin="I_C156_A0_P1_in" dir="in" link="Link5" />
+                <Link pin="O_C156_A0_P2_out" dir="out" link="Link7" />
+            </Algorithm>
+            <Algorithm name="DCBlockAlgDoublePrec1" friendlyname="DC Blocking " cell="DSPDistortion.DCB1 " location="{X=763, Y=340} " Growth="0 " GrowthB="0">
+                <Link pin="I_C66_A0_P1_in" dir="in" link="Link7" />
+                <Link pin="O_C66_A0_P2_out" dir="out" link="Link8" />
+            </Algorithm>
+            <Algorithm name="Gain1940AlgNS4" friendlyname="Gain (no slew) " cell="DSPDistortion.VOLUME " location="{X=893, Y=273} " Growth="0 " GrowthB="0">
+                <Link pin="I_C169_A0_P1_in" dir="in" link="Link8" />
+                <Link pin="O_C169_A0_P2_out" dir="out" link="Link3" />
+            </Algorithm>
+            <Algorithm name="monoMuxSwSlew1" friendlyname="Mono SW Slew " cell="DSPDistortion.BYPASS " location="{X=1003, Y=460} " Growth="2 " GrowthB="0">
+                <Link pin="I_C195_A0_P2_in" dir="in" link="Link3" />
+                <Link pin="I_C195_A0_P3_in" dir="in" link="Link24" />
+                <Link pin="O_C195_A0_P1_out" dir="out" link="Link23" />
+            </Algorithm>
+            <Algorithm name="SWGain1940DBAlg1" friendlyname="Gain (RC Slew) " cell="SW vol 1 " location="{X=999, Y=230} " Growth="1 " GrowthB="0">
+                <Link pin="I_C39_A0_P1_in" dir="in" link="Link23" />
+                <Link pin="O_C39_A0_P2_out" dir="out" link="Link22" />
+            </Algorithm>
+            <Algorithm name="EQ1940Single2" friendlyname="1 Channel - Double Precision " cell="PostGain.MID1 " location="{X=808, Y=520} " Growth="1 " GrowthB="0">
+                <Link pin="I_C229_A0_P1_in" dir="in" link="Link22" />
+                <Link pin="O_C229_A0_P2_out" dir="out" link="Link1" />
+            </Algorithm>
+            <Algorithm name="EQ1940Single3" friendlyname="1 Channel - Double Precision " cell="PostGain.MID2 " location="{X=890, Y=523} " Growth="1 " GrowthB="0">
+                <Link pin="I_C232_A0_P1_in" dir="in" link="Link1" />
+                <Link pin="O_C232_A0_P2_out" dir="out" link="Link2" />
+            </Algorithm>
+            <Algorithm name="EQ1940SingleS4" friendlyname="1 Channel - Single Precision " cell="PostGain.PO_TONECONTROL " location="{X=1090, Y=572} " Growth="1 " GrowthB="0">
+                <Link pin="I_C257_A0_P1_in" dir="in" link="Link2" />
+                <Link pin="O_C257_A0_P2_out" dir="out" link="Link16" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle1" friendlyname="1st order filter " cell="PostGain.PRES.PRESENCE " location="{X=675, Y=375} " Growth="1 " GrowthB="0">
+                <Link pin="I_C13_A0_P1_in" dir="in" link="Link16" />
+                <Link pin="O_C13_A0_P2_out" dir="out" link="Link17" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle2" friendlyname="1st order filter " cell="PostGain.PRES.PRESENCE2 " location="{X=825, Y=374} " Growth="1 " GrowthB="0">
+                <Link pin="I_C28_A0_P1_in" dir="in" link="Link17" />
+                <Link pin="O_C28_A0_P2_out" dir="out" link="Link18" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle5" friendlyname="1st order filter " cell="PostGain.PRES.PRESENCE3 " location="{X=991, Y=377} " Growth="1 " GrowthB="0">
+                <Link pin="I_C102_A0_P1_in" dir="in" link="Link18" />
+                <Link pin="O_C102_A0_P2_out" dir="out" link="Link20" />
+            </Algorithm>
+            <Algorithm name="FistOrderSingle6" friendlyname="1st order filter " cell="PostGain.PRES.PRESENCE4 " location="{X=1135, Y=375} " Growth="1 " GrowthB="0">
+                <Link pin="I_C38_A0_P1_in" dir="in" link="Link20" />
+                <Link pin="O_C38_A0_P2_out" dir="out" link="Link0" />
+            </Algorithm>
+            <Algorithm name="monoMuxSwSlew3" friendlyname="Mono SW Slew " cell="PostGain.PRES.ORDER " location="{X=1255, Y=205} " Growth="4 " GrowthB="0">
+                <Link pin="I_C144_A0_P2_in" dir="in" link="Link17" />
+                <Link pin="I_C144_A0_P3_in" dir="in" link="Link18" />
+                <Link pin="I_C144_A0_P4_in" dir="in" link="Link20" />
+                <Link pin="I_C144_A0_P5_in" dir="in" link="Link0" />
+                <Link pin="O_C144_A0_P1_out" dir="out" link="Link19" />
+            </Algorithm>
+            <Algorithm name="monomux1940ns3" friendlyname="Mono " cell="PostGain.PO_BYPASS " location="{X=1692, Y=690} " Growth="2 " GrowthB="0">
+                <Link pin="I_C260_A0_P2_in" dir="in" link="Link19" />
+                <Link pin="I_C260_A0_P3_in" dir="in" link="Link22" />
+                <Link pin="O_C260_A0_P1_out" dir="out" link="Link21" />
+            </Algorithm>
+            <Algorithm name="SWGain1940DBAlg2" friendlyname="Gain (RC Slew) " cell="PO_VOLUME " location="{X=1563, Y=504} " Growth="1 " GrowthB="0">
+                <Link pin="I_C133_A0_P1_in" dir="in" link="Link21" />
+                <Link pin="O_C133_A0_P2_out" dir="out" link="Link14" />
+            </Algorithm>
+            <Algorithm name="Gain1940AlgNS7" friendlyname="Gain (no slew) " cell="Gain1_2 " location="{X=1689, Y=569} " Growth="0 " GrowthB="0">
+                <Link pin="I_C58_A0_P1_in" dir="in" link="Link14" />
+                <Link pin="O_C58_A0_P2_out" dir="out" link="Link15" />
+            </Algorithm>
+            <Algorithm name="ICSigma100Out2" friendlyname="170x\140x output " cell="Output2 " location="{X=1912, Y=585} " Growth="0 " GrowthB="0">
+                <Link pin="I_C24_A0_P1_in" dir="in" link="Link15" />
+            </Algorithm>
+        </Schematic>
+    </IC>
+</NetList>

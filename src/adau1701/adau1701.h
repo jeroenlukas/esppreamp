@@ -3,5 +3,6 @@
 
 extern void adau1701_init(void);
 extern void adau1701_set_testfreq(int frequency);
+extern void adau1701_set_gain(float gain);
 
 #endif

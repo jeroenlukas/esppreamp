@@ -1,8 +1,8 @@
 /*
- * File:           C:\Users\Jeroen\Jottacloud\DIY\Elektronica\ESPPreamp\Software\ESPPreamp\src\sigmastudio\Design 1_IC_1_REG.h
+ * File:           C:\Users\Jeroen\Jottacloud\DIY\Elektronica\ESPPreamp\Software\esppreamp\src\sigmastudio\export\ESPPreamp_IC_1_REG.h
  *
- * Created:        Saturday, October 4, 2025 1:57:12 PM
- * Description:    Design 1:IC 1 control register definitions.
+ * Created:        Saturday, October 4, 2025 5:57:10 PM
+ * Description:    ESPPreamp:IC 1 control register definitions.
  *
  * This software is distributed in the hope that it will be useful,
  * but is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -16,8 +16,8 @@
  *
  * Copyright ©2025 Analog Devices, Inc. All rights reserved.
  */
-#ifndef __DESIGN_1_IC_1_REG_H__
-#define __DESIGN_1_IC_1_REG_H__
+#ifndef __ESPPREAMP_IC_1_REG_H__
+#define __ESPPREAMP_IC_1_REG_H__
 
 
 /* InterfaceRegister0  - Registers (IC 1) */

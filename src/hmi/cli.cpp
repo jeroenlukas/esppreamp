@@ -9,6 +9,9 @@ SimpleCLI cli;
 Command cmd_reset;
 Command cmd_help;
 
+// DSP
+Command cmd_gain;
+
 // Test
 Command cmd_freq;
 
@@ -61,6 +64,17 @@ void cb_freq(cmd* c)
     
 }
 
+void cb_gain(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {        
+        float gain = cmd.getArgument(0).getValue().toFloat();
+        
+        adau1701_set_gain(gain);
+    }
+}
+
 void cli_init(void)
 {
     cli.setOnError(cb_error);
@@ -73,6 +87,9 @@ void cli_init(void)
 
     cmd_freq = cli.addSingleArgCmd("freq", cb_freq);
     cmd_freq.setDescription("- Set the frequency");
+
+    cmd_gain = cli.addSingleArgCmd("gain", cb_gain);
+    cmd_gain.setDescription("- Set the gain");
 }
 
 void cli_parse(String input)

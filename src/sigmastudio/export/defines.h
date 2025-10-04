@@ -1,8 +1,8 @@
 /*
- * File:           C:\Users\Jeroen\Jottacloud\DIY\Elektronica\ESPPreamp\Software\ESPPreamp\src\sigmastudio\Design 1_IC_2_REG.h
+ * File:           defines.h
  *
- * Created:        Saturday, October 4, 2025 1:57:12 PM
- * Description:    Design 1:IC 2 control register definitions.
+ * Created:        Saturday, October 4, 2025 5:57:10 PM
+ * Description:    ESPPreamp IC default download data definitions.
  *
  * This software is distributed in the hope that it will be useful,
  * but is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -16,8 +16,14 @@
  *
  * Copyright ©2025 Analog Devices, Inc. All rights reserved.
  */
-#ifndef __DESIGN_1_IC_2_REG_H__
-#define __DESIGN_1_IC_2_REG_H__
+#ifndef __DEFINES_H__
+#define __DEFINES_H__
+
+#define BufferSize_IC_1     	9254
+#define NumTransactions_IC_1	5
+
+#define BufferSize_IC_2     	0
+#define NumTransactions_IC_2	0
 
 
 #endif

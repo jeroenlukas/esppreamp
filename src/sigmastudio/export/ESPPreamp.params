@@ -1,105 +1,645 @@
-Cell Name         = Sawtooth1
-Parameter Name    = SawAlg1freq
-Parameter Address = 1
-Parameter Value   = 0.0104168653488159
+Cell Name         = PostGain.PRES.PRESENCE
+Parameter Name    = FistOrderSingle101
+Parameter Address = 46
+Parameter Value   = 0.477996945381165
 Parameter Data :
-0x00, 0x01, 0x55, 0x57, 
+0x00 ,	0x3D ,	0x2F ,	0x01 ,	
 
 
 
-Cell Name         = Sawtooth1
-Parameter Name    = SawAlg1ison
+Cell Name         = PostGain.PRES.PRESENCE
+Parameter Name    = FistOrderSingle111
+Parameter Address = 47
+Parameter Value   = 0
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE
+Parameter Name    = FistOrderSingle121
+Parameter Address = 48
+Parameter Value   = 0.522003054618835
+Parameter Data :
+0x00 ,	0x42 ,	0xD0 ,	0xFF ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE2
+Parameter Name    = FistOrderSingle201
+Parameter Address = 49
+Parameter Value   = 0.477996945381165
+Parameter Data :
+0x00 ,	0x3D ,	0x2F ,	0x01 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE2
+Parameter Name    = FistOrderSingle211
+Parameter Address = 50
+Parameter Value   = 0
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE2
+Parameter Name    = FistOrderSingle221
+Parameter Address = 51
+Parameter Value   = 0.522003054618835
+Parameter Data :
+0x00 ,	0x42 ,	0xD0 ,	0xFF ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE3
+Parameter Name    = FistOrderSingle501
+Parameter Address = 52
+Parameter Value   = 0.477996945381165
+Parameter Data :
+0x00 ,	0x3D ,	0x2F ,	0x01 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE3
+Parameter Name    = FistOrderSingle511
+Parameter Address = 53
+Parameter Value   = 0
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE3
+Parameter Name    = FistOrderSingle521
+Parameter Address = 54
+Parameter Value   = 0.522003054618835
+Parameter Data :
+0x00 ,	0x42 ,	0xD0 ,	0xFF ,	
+
+
+
+Cell Name         = PostGain.PRES.ORDER
+Parameter Name    = monoMuxSwSlew3coeffname
+Parameter Address = 58
+Parameter Value   = 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE4
+Parameter Name    = FistOrderSingle601
+Parameter Address = 55
+Parameter Value   = 0.477996945381165
+Parameter Data :
+0x00 ,	0x3D ,	0x2F ,	0x01 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE4
+Parameter Name    = FistOrderSingle611
+Parameter Address = 56
+Parameter Value   = 0
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = PostGain.PRES.PRESENCE4
+Parameter Name    = FistOrderSingle621
+Parameter Address = 57
+Parameter Value   = 0.522003054618835
+Parameter Data :
+0x00 ,	0x42 ,	0xD0 ,	0xFF ,	
+
+
+
+Cell Name         = PostGain.MID1
+Parameter Name    = EQ1940Single20B1
+Parameter Address = 31
+Parameter Value   = 0.985842704772949
+Parameter Data :
+0x00 ,	0x7E ,	0x30 ,	0x18 ,	
+
+
+
+Cell Name         = PostGain.MID1
+Parameter Name    = EQ1940Single21B1
+Parameter Address = 32
+Parameter Value   = -1.93065881729126
+Parameter Data :
+0x0F ,	0x08 ,	0xE0 ,	0x2C ,	
+
+
+
+Cell Name         = PostGain.MID1
+Parameter Name    = EQ1940Single22B1
+Parameter Address = 33
+Parameter Value   = 0.947465658187866
+Parameter Data :
+0x00 ,	0x79 ,	0x46 ,	0x8E ,	
+
+
+
+Cell Name         = PostGain.MID1
+Parameter Name    = EQ1940Single21A1
+Parameter Address = 34
+Parameter Value   = 1.93065881729126
+Parameter Data :
+0x00 ,	0xF7 ,	0x1F ,	0xD4 ,	
+
+
+
+Cell Name         = PostGain.MID1
+Parameter Name    = EQ1940Single22A1
+Parameter Address = 35
+Parameter Value   = -0.933308362960815
+Parameter Data :
+0x0F ,	0x88 ,	0x89 ,	0x5A ,	
+
+
+
+Cell Name         = PostGain.MID2
+Parameter Name    = EQ1940Single30B1
+Parameter Address = 36
+Parameter Value   = 0.991780519485474
+Parameter Data :
+0x00 ,	0x7E ,	0xF2 ,	0xAA ,	
+
+
+
+Cell Name         = PostGain.MID2
+Parameter Name    = EQ1940Single31B1
+Parameter Address = 37
+Parameter Value   = -1.93768548965454
+Parameter Data :
+0x0F ,	0x07 ,	0xF9 ,	0xEC ,	
+
+
+
+Cell Name         = PostGain.MID2
+Parameter Name    = EQ1940Single32B1
+Parameter Address = 38
+Parameter Value   = 0.948564171791077
+Parameter Data :
+0x00 ,	0x79 ,	0x6A ,	0x8D ,	
+
+
+
+Cell Name         = PostGain.MID2
+Parameter Name    = EQ1940Single31A1
+Parameter Address = 39
+Parameter Value   = 1.93768548965454
+Parameter Data :
+0x00 ,	0xF8 ,	0x06 ,	0x14 ,	
+
+
+
+Cell Name         = PostGain.MID2
+Parameter Name    = EQ1940Single32A1
+Parameter Address = 40
+Parameter Value   = -0.94034469127655
+Parameter Data :
+0x0F ,	0x87 ,	0xA2 ,	0xC9 ,	
+
+
+
+Cell Name         = PostGain.PO_TONECONTROL
+Parameter Name    = EQ1940SingleS40B1
+Parameter Address = 41
+Parameter Value   = -1.32835578918457
+Parameter Data :
+0x0F ,	0x55 ,	0xF8 ,	0x70 ,	
+
+
+
+Cell Name         = PostGain.PO_TONECONTROL
+Parameter Name    = EQ1940SingleS41B1
+Parameter Address = 42
+Parameter Value   = 2.67426550388336
+Parameter Data :
+0x01 ,	0x56 ,	0x4E ,	0x55 ,	
+
+
+
+Cell Name         = PostGain.PO_TONECONTROL
+Parameter Name    = EQ1940SingleS42B1
+Parameter Address = 43
+Parameter Value   = -1.34259974956512
+Parameter Data :
+0x0F ,	0x54 ,	0x25 ,	0xB1 ,	
+
+
+
+Cell Name         = PostGain.PO_TONECONTROL
+Parameter Name    = EQ1940SingleS41A1
+Parameter Address = 44
+Parameter Value   = 1.89058840274811
+Parameter Data :
+0x00 ,	0xF1 ,	0xFE ,	0xCD ,	
+
+
+
+Cell Name         = PostGain.PO_TONECONTROL
+Parameter Name    = EQ1940SingleS42A1
+Parameter Address = 45
+Parameter Value   = -0.893538355827332
+Parameter Data :
+0x0F ,	0x8D ,	0xA0 ,	0x89 ,	
+
+
+
+Cell Name         = PostGain.PO_BYPASS
+Parameter Name    = monomux1940ns3_0
+Parameter Address = 59
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = PostGain.PO_BYPASS
+Parameter Name    = monomux1940ns3_1
+Parameter Address = 60
+Parameter Value   = 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Cell Name         = DSPDistortion.SoftClip1
+Parameter Name    = SoftClipAlgG21alpha
+Parameter Address = 22
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = DSPDistortion.SoftClip1
+Parameter Name    = SoftClipAlgG21alpham1
+Parameter Address = 23
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = DSPDistortion.SoftClip1
+Parameter Name    = SoftClipAlgG21onethird
+Parameter Address = 24
+Parameter Value   = 0.333333373069763
+Parameter Data :
+0x00, 0x2A, 0xAA, 0xAB, 
+
+
+
+Cell Name         = DSPDistortion.SoftClip1
+Parameter Name    = SoftClipAlgG21twothird
+Parameter Address = 25
+Parameter Value   = 0.666666626930237
+Parameter Data :
+0x00, 0x55, 0x55, 0x55, 
+
+
+
+Cell Name         = DSPDistortion.GAIN1
+Parameter Name    = Gain1940AlgNS3
+Parameter Address = 17
+Parameter Value   = 3.16227769851685
+Parameter Data :
+0x01, 0x94, 0xC5, 0x84, 
+
+
+
+Cell Name         = DSPDistortion.VOLUME
+Parameter Name    = Gain1940AlgNS4
+Parameter Address = 27
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = DSPDistortion.BYPASS
+Parameter Name    = monoMuxSwSlew1coeffname
+Parameter Address = 28
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x00, 0x00, 0x01, 
+
+
+
+Cell Name         = DSPDistortion.GAIN2
+Parameter Name    = Gain1940AlgNS5
+Parameter Address = 18
+Parameter Value   = 5.01187229156494
+Parameter Data :
+0x02, 0x81, 0x85, 0x08, 
+
+
+
+Cell Name         = DSPDistortion.ASYMMETRY
+Parameter Name    = DCInpAlg1
+Parameter Address = 0
+Parameter Value   = 0.100000023841858
+Parameter Data :
+0x00, 0x0C, 0xCC, 0xCD, 
+
+
+
+Cell Name         = DSPDistortion.NxM Mixer1
+Parameter Name    = NxNMixer1940Alg1_00_00
+Parameter Address = 20
+Parameter Value   = 1
+Parameter Data :
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = DSPDistortion.NxM Mixer1
+Parameter Name    = NxNMixer1940Alg1_00_01
+Parameter Address = 21
+Parameter Value   = 1
+Parameter Data :
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = DSPDistortion.DCB1
+Parameter Name    = DCBlockAlgDoublePrec1pole
+Parameter Address = 26
+Parameter Value   = 0.999899983406067
+Parameter Data :
+0x00, 0x7F, 0xFC, 0xB9, 
+
+
+
+Cell Name         = DSPDistortion.GAIN3
+Parameter Name    = Gain1940AlgNS6
+Parameter Address = 19
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = PreGain.BYPASS
+Parameter Name    = monomux1940ns2_0
+Parameter Address = 15
+Parameter Value   = 1
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = PreGain.BYPASS
+Parameter Name    = monomux1940ns2_1
+Parameter Address = 16
+Parameter Value   = 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Cell Name         = PreGain.LOWCUT
+Parameter Name    = FistOrderSingle301
 Parameter Address = 2
-Parameter Value   = 1
+Parameter Value   = 0.994826316833496
 Parameter Data :
-0x00, 0x80, 0x00, 0x00, 
+0x00 ,	0x7F ,	0x56 ,	0x78 ,	
 
 
 
-Cell Name         = Sawtooth2
-Parameter Name    = SawAlg2freq
+Cell Name         = PreGain.LOWCUT
+Parameter Name    = FistOrderSingle311
+Parameter Address = 3
+Parameter Value   = -0.994826316833496
+Parameter Data :
+0x0F ,	0x80 ,	0xA9 ,	0x88 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT
+Parameter Name    = FistOrderSingle321
 Parameter Address = 4
-Parameter Value   = 0.0145833492279053
+Parameter Value   = 0.989652633666992
 Parameter Data :
-0x00, 0x01, 0xDD, 0xDE, 
+0x00 ,	0x7E ,	0xAC ,	0xF0 ,	
 
 
 
-Cell Name         = Sawtooth2
-Parameter Name    = SawAlg2ison
+Cell Name         = PreGain.LOWCUT2
+Parameter Name    = FistOrderSingle401
 Parameter Address = 5
+Parameter Value   = 0.994826316833496
+Parameter Data :
+0x00 ,	0x7F ,	0x56 ,	0x78 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT2
+Parameter Name    = FistOrderSingle411
+Parameter Address = 6
+Parameter Value   = -0.994826316833496
+Parameter Data :
+0x0F ,	0x80 ,	0xA9 ,	0x88 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT2
+Parameter Name    = FistOrderSingle421
+Parameter Address = 7
+Parameter Value   = 0.989652633666992
+Parameter Data :
+0x00 ,	0x7E ,	0xAC ,	0xF0 ,	
+
+
+
+Cell Name         = PreGain.ORDER
+Parameter Name    = monoMuxSwSlew4coeffname
+Parameter Address = 14
+Parameter Value   = 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Cell Name         = PreGain.LOWCUT3
+Parameter Name    = FistOrderSingle701
+Parameter Address = 8
+Parameter Value   = 0.994826316833496
+Parameter Data :
+0x00 ,	0x7F ,	0x56 ,	0x78 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT3
+Parameter Name    = FistOrderSingle711
+Parameter Address = 9
+Parameter Value   = -0.994826316833496
+Parameter Data :
+0x0F ,	0x80 ,	0xA9 ,	0x88 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT3
+Parameter Name    = FistOrderSingle721
+Parameter Address = 10
+Parameter Value   = 0.989652633666992
+Parameter Data :
+0x00 ,	0x7E ,	0xAC ,	0xF0 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT4
+Parameter Name    = FistOrderSingle801
+Parameter Address = 11
+Parameter Value   = 0.994826316833496
+Parameter Data :
+0x00 ,	0x7F ,	0x56 ,	0x78 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT4
+Parameter Name    = FistOrderSingle811
+Parameter Address = 12
+Parameter Value   = -0.994826316833496
+Parameter Data :
+0x0F ,	0x80 ,	0xA9 ,	0x88 ,	
+
+
+
+Cell Name         = PreGain.LOWCUT4
+Parameter Name    = FistOrderSingle821
+Parameter Address = 13
+Parameter Value   = 0.989652633666992
+Parameter Data :
+0x00 ,	0x7E ,	0xAC ,	0xF0 ,	
+
+
+
+Cell Name         = SW vol 1
+Parameter Name    = SWGain1940DBAlg1target
+Parameter Address = 29
+Parameter Value   = 1
+Parameter Data :
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = SW vol 1
+Parameter Name    = SWGain1940DBAlg1step
+Parameter Address = 30
+Parameter Value   = 0.000244140625
+Parameter Data :
+0x00 ,	0x00 ,	0x08 ,	0x00 ,	
+
+
+
+Cell Name         = PO_VOLUME
+Parameter Name    = SWGain1940DBAlg2target
+Parameter Address = 61
+Parameter Value   = 0.478630065917969
+Parameter Data :
+0x00 ,	0x3D ,	0x43 ,	0xC0 ,	
+
+
+
+Cell Name         = PO_VOLUME
+Parameter Name    = SWGain1940DBAlg2step
+Parameter Address = 62
+Parameter Value   = 0.000244140625
+Parameter Data :
+0x00 ,	0x00 ,	0x08 ,	0x00 ,	
+
+
+
+Cell Name         = Gain1
+Parameter Name    = Gain1940AlgNS1
+Parameter Address = 1
 Parameter Value   = 1
 Parameter Data :
 0x00, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = Gain1_2
+Parameter Name    = Gain1940AlgNS7
+Parameter Address = 63
+Parameter Value   = 1.99526226520538
+Parameter Data :
+0x00, 0xFF, 0x64, 0xC1, 
 
 
 
 Parameter data for: IC 1 (Hexadecimal format starting at parameter address 0)
-See also Design 1.hex file
+See also ESPPreamp.hex file
+0x00 , 	0x0C , 	0xCC , 	0xCD , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x7F , 	0x56 , 	0x78 , 	
+0x0F , 	0x80 , 	0xA9 , 	0x88 , 	
+0x00 , 	0x7E , 	0xAC , 	0xF0 , 	
+0x00 , 	0x7F , 	0x56 , 	0x78 , 	
+0x0F , 	0x80 , 	0xA9 , 	0x88 , 	
+0x00 , 	0x7E , 	0xAC , 	0xF0 , 	
+0x00 , 	0x7F , 	0x56 , 	0x78 , 	
+0x0F , 	0x80 , 	0xA9 , 	0x88 , 	
+0x00 , 	0x7E , 	0xAC , 	0xF0 , 	
+0x00 , 	0x7F , 	0x56 , 	0x78 , 	
+0x0F , 	0x80 , 	0xA9 , 	0x88 , 	
+0x00 , 	0x7E , 	0xAC , 	0xF0 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x01 , 	0x55 , 	0x57 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x01 , 	0xDD , 	0xDE , 	
+0x01 , 	0x94 , 	0xC5 , 	0x84 , 	
+0x02 , 	0x81 , 	0x85 , 	0x08 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x2A , 	0xAA , 	0xAB , 	
+0x00 , 	0x55 , 	0x55 , 	0x55 , 	
+0x00 , 	0x7F , 	0xFC , 	0xB9 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x01 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x08 , 	0x00 , 	
+0x00 , 	0x7E , 	0x30 , 	0x18 , 	
+0x0F , 	0x08 , 	0xE0 , 	0x2C , 	
+0x00 , 	0x79 , 	0x46 , 	0x8E , 	
+0x00 , 	0xF7 , 	0x1F , 	0xD4 , 	
+0x0F , 	0x88 , 	0x89 , 	0x5A , 	
+0x00 , 	0x7E , 	0xF2 , 	0xAA , 	
+0x0F , 	0x07 , 	0xF9 , 	0xEC , 	
+0x00 , 	0x79 , 	0x6A , 	0x8D , 	
+0x00 , 	0xF8 , 	0x06 , 	0x14 , 	
+0x0F , 	0x87 , 	0xA2 , 	0xC9 , 	
+0x0F , 	0x55 , 	0xF8 , 	0x70 , 	
+0x01 , 	0x56 , 	0x4E , 	0x55 , 	
+0x0F , 	0x54 , 	0x25 , 	0xB1 , 	
+0x00 , 	0xF1 , 	0xFE , 	0xCD , 	
+0x0F , 	0x8D , 	0xA0 , 	0x89 , 	
+0x00 , 	0x3D , 	0x2F , 	0x01 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x42 , 	0xD0 , 	0xFF , 	
+0x00 , 	0x3D , 	0x2F , 	0x01 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x42 , 	0xD0 , 	0xFF , 	
+0x00 , 	0x3D , 	0x2F , 	0x01 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x42 , 	0xD0 , 	0xFF , 	
+0x00 , 	0x3D , 	0x2F , 	0x01 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x42 , 	0xD0 , 	0xFF , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x3D , 	0x43 , 	0xC0 , 	
+0x00 , 	0x00 , 	0x08 , 	0x00 , 	
+0x00 , 	0xFF , 	0x64 , 	0xC1 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
@@ -1062,70 +1602,70 @@ See also Design 1.hex file
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 
 Parameter data for: IC 1 (Binary format starting at parameter address 0)
+00000000	00001100	11001100	11001101	
+00000000	10000000	00000000	00000000	
+00000000	01111111	01010110	01111000	
+00001111	10000000	10101001	10001000	
+00000000	01111110	10101100	11110000	
+00000000	01111111	01010110	01111000	
+00001111	10000000	10101001	10001000	
+00000000	01111110	10101100	11110000	
+00000000	01111111	01010110	01111000	
+00001111	10000000	10101001	10001000	
+00000000	01111110	10101100	11110000	
+00000000	01111111	01010110	01111000	
+00001111	10000000	10101001	10001000	
+00000000	01111110	10101100	11110000	
 00000000	00000000	00000000	00000000	
-00000000	00000001	01010101	01010111	
 00000000	10000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
-00000000	00000001	11011101	11011110	
+00000001	10010100	11000101	10000100	
+00000010	10000001	10000101	00001000	
+00000000	10000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	00101010	10101010	10101011	
+00000000	01010101	01010101	01010101	
+00000000	01111111	11111100	10111001	
+00000000	10000000	00000000	00000000	
+00000000	00000000	00000000	00000001	
+00000000	10000000	00000000	00000000	
+00000000	00000000	00001000	00000000	
+00000000	01111110	00110000	00011000	
+00001111	00001000	11100000	00101100	
+00000000	01111001	01000110	10001110	
+00000000	11110111	00011111	11010100	
+00001111	10001000	10001001	01011010	
+00000000	01111110	11110010	10101010	
+00001111	00000111	11111001	11101100	
+00000000	01111001	01101010	10001101	
+00000000	11111000	00000110	00010100	
+00001111	10000111	10100010	11001001	
+00001111	01010101	11111000	01110000	
+00000001	01010110	01001110	01010101	
+00001111	01010100	00100101	10110001	
+00000000	11110001	11111110	11001101	
+00001111	10001101	10100000	10001001	
+00000000	00111101	00101111	00000001	
+00000000	00000000	00000000	00000000	
+00000000	01000010	11010000	11111111	
+00000000	00111101	00101111	00000001	
+00000000	00000000	00000000	00000000	
+00000000	01000010	11010000	11111111	
+00000000	00111101	00101111	00000001	
+00000000	00000000	00000000	00000000	
+00000000	01000010	11010000	11111111	
+00000000	00111101	00101111	00000001	
+00000000	00000000	00000000	00000000	
+00000000	01000010	11010000	11111111	
+00000000	00000000	00000000	00000000	
 00000000	10000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00000000	
+00000000	00111101	01000011	11000000	
+00000000	00000000	00001000	00000000	
+00000000	11111111	01100100	11000001	
 00000000	00000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
