@@ -11,9 +11,13 @@ Command cmd_help;
 
 // DSP
 Command cmd_gain;
+Command cmd_low;
+Command cmd_high;
 
 // Test
 Command cmd_freq;
+
+
 
 void cli_init(void);
 void cli_parse(String input);
@@ -75,6 +79,28 @@ void cb_gain(cmd* c)
     }
 }
 
+void cb_low(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {        
+        float low = cmd.getArgument(0).getValue().toFloat();
+        
+        adau1701_set_low(low);
+    }
+}
+
+void cb_high(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {        
+        float high = cmd.getArgument(0).getValue().toFloat();
+        
+        adau1701_set_high(high);
+    }
+}
+
 void cli_init(void)
 {
     cli.setOnError(cb_error);
@@ -90,6 +116,9 @@ void cli_init(void)
 
     cmd_gain = cli.addSingleArgCmd("gain", cb_gain);
     cmd_gain.setDescription("- Set the gain");
+
+    cmd_low = cli.addSingleArgCmd("low", cb_low);
+    cmd_high = cli.addSingleArgCmd("high", cb_high);
 }
 
 void cli_parse(String input)

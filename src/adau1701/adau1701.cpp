@@ -11,6 +11,8 @@ SigmaDSP dsp(Wire, DSP_I2C_ADDRESS, 48000.0f);
 void adau1701_init(void);
 void adau1701_set_testfreq(int frequency);
 void adau1701_set_gain(float gain);
+void adau1701_set_high(float high);
+void adau1701_set_low(float low);
 
 void adau1701_init(void)
 {
@@ -44,6 +46,28 @@ void adau1701_set_gain(float gain)
     //dsp.volume_slew(MOD_PO_VOLUME_ALG0_TARGET_ADDR, gain, 12);
     
     
+}
+
+void adau1701_set_high(float high)
+{
+    Serial.println("Set high to " + String(high));
+    toneCtrl_t tone_ctl;
+    tone_ctl.boost_Bass_dB = 2;
+    tone_ctl.boost_Treble_dB = high;
+    tone_ctl.freq_Bass = 400;
+    tone_ctl.freq_Treble = 400;
+    dsp.toneControl(MOD_POSTGAIN_PO_TONECONTROL_ALG0_STAGE0_B0_ADDR, tone_ctl);
+}
+
+void adau1701_set_low(float low)
+{
+    Serial.println("Set low to " + String(low));
+    toneCtrl_t tone_ctl;
+    tone_ctl.boost_Bass_dB = low;
+    tone_ctl.boost_Treble_dB = 2;
+    tone_ctl.freq_Bass = 400;
+    tone_ctl.freq_Treble = 400;
+    dsp.toneControl(MOD_POSTGAIN_PO_TONECONTROL_ALG0_STAGE0_B0_ADDR, tone_ctl);
 }
 
 void adau1701_set_testfreq(int frequency)

@@ -19,6 +19,8 @@
 #include <Wire.h>
 #include <ESPAsyncWebServer.h>
 
+#include "config.h"
+
 #include "adau1701/adau1701.h"
 
 #include "hmi/cli.h"
@@ -46,7 +48,7 @@ void setup()
 
 //#if SOC_WIFI_SUPPORTED || CONFIG_ESP_WIFI_REMOTE_ENABLED || LT_ARD_HAS_WIFI
   WiFi.mode(WIFI_STA);
-  WiFi.begin("Rinus", "scheldestraat");
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED)
   {
       Serial.print('.');
