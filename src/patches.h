@@ -25,7 +25,7 @@ class Patch
 
 Patch::Patch()
 {
-
+    
 }
 
 extern Patch patch_active;

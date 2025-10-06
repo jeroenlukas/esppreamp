@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "sigmadsp.h": "c"
+        "sigmadsp.h": "c",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     }
 }

@@ -1,0 +1,69 @@
+- name: FenderClean
+  id: 1
+  pre:
+    cutoff_freq: 80
+    order: 2
+  distortion: 
+    enabled: true
+    gain: [-4, 4]
+    alpha: 0.6
+    asymmetry: 0.03
+    volume: -5
+  tonecontrol:
+    low_cutoff_freq: 80
+    low_order: 2
+    low: [-5, 2]
+    mid: [-3, 3]
+    mid_q: 1.0
+    mid_freq: 450
+    high: [-1, 2]    
+  presence:
+    cutoff_freq: [2000, 6000]
+    order: 2
+
+  
+- name: Marshall
+  id: 2
+  pre:
+    cutoff_freq: 80
+    order: 2
+  distortion: 
+    enabled: true
+    gain: [-4, 4]
+    alpha: 0.6
+    asymmetry: 0.03
+    volume: -5
+  tonecontrol:
+    low_cutoff_freq: 80
+    low_order: 2
+    low: [-5, 2]
+    mid: [-3, 3]
+    mid_q: 1.0
+    mid_freq: 700
+    high: [-1, 2]    
+  presence:
+    cutoff_freq: [2000, 6000]
+    order: 2
+  
+- name: Voxpop
+  id: 3
+  pre:
+    cutoff_freq: 80
+    order: 2
+  distortion: 
+    enabled: true
+    gain: [-4, 4]
+    alpha: 0.6
+    asymmetry: 0.03
+    volume: -5
+  tonecontrol:
+    low_cutoff_freq: 80
+    low_order: 2
+    low: [-5, 2]
+    mid: [-3, 3]
+    mid_q: 1.0
+    mid_freq: 330
+    high: [-1, 2]    
+  presence:
+    cutoff_freq: [2000, 6000]
+    order: 2

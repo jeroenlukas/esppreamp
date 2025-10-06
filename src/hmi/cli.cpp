@@ -2,6 +2,7 @@
 #include <SimpleCLI.h>
 
 #include "../adau1701/adau1701.h"
+#include "../models.h"
 
 SimpleCLI cli;
 
@@ -14,8 +15,12 @@ Command cmd_gain;
 Command cmd_low;
 Command cmd_high;
 
+// Model
+Command cmd_model;
+
 // Test
 Command cmd_freq;
+
 
 
 
@@ -101,6 +106,24 @@ void cb_high(cmd* c)
     }
 }
 
+void cb_model(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {
+        Model_t model;
+        if(models_load(cmd.getArgument(0).getValue().toInt(), &model))
+        {            
+            Serial.println("Model id #" + String(model.id) + " is called " + model.name);
+            Serial.println("Gain range: " + String(model.dist_gain_db.min) +  " .. " + String(model.dist_gain_db.max));
+            Serial.println("Mid freq: " + String(model.mid_freq) + " Hz Mid Q: " + String(model.mid_q));
+            Serial.println("Presence range: " + String(model.presence_cutoff_freq.min) + " .. " + String(model.presence_cutoff_freq.max) + " Hz, " + String(model.presence_order) + " order");
+        }
+        else
+            Serial.println("Error: model not found");
+    }
+}
+
 void cli_init(void)
 {
     cli.setOnError(cb_error);
@@ -119,6 +142,9 @@ void cli_init(void)
 
     cmd_low = cli.addSingleArgCmd("low", cb_low);
     cmd_high = cli.addSingleArgCmd("high", cb_high);
+
+    cmd_model = cli.addSingleArgCmd("model", cb_model);
+
 }
 
 void cli_parse(String input)
