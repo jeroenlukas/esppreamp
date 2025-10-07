@@ -3,12 +3,14 @@
 
 #include "../adau1701/adau1701.h"
 #include "../models.h"
+#include "../filesystem/filesystem.h"
 
 SimpleCLI cli;
 
 // Basic commands
 Command cmd_reset;
 Command cmd_help;
+Command cmd_cat;
 
 // DSP
 Command cmd_gain;
@@ -20,6 +22,7 @@ Command cmd_model;
 
 // Test
 Command cmd_freq;
+Command cmd_model_search;
 
 
 
@@ -57,6 +60,21 @@ void cb_reset(cmd* c)
     delay(1000);
 
     ESP.restart();
+}
+
+void cb_cat(cmd* c)
+{
+    Command cmd(c);
+
+    if(cmd.getArgument(0).isSet())
+    {
+        String filename = cmd.getArgument(0).getValue();
+
+        Serial.println("---" + filename + "---");
+        String file_content = filesystem_readfile(filename);
+        Serial.print(file_content);
+        Serial.println("---END---");
+    }
 }
 
 void cb_freq(cmd* c)
@@ -124,6 +142,19 @@ void cb_model(cmd* c)
     }
 }
 
+void cb_model_search(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {
+        String test;
+        if(model_search_yaml(&test, cmd.getArg(0).getValue().toInt()))
+        {
+            Serial.println(test);
+        }
+    }
+}
+
 void cli_init(void)
 {
     cli.setOnError(cb_error);
@@ -133,6 +164,9 @@ void cli_init(void)
 
     cmd_help = cli.addCommand("help", cb_help);
     cmd_help.setDescription("- Show this help");
+
+    cmd_cat = cli.addSingleArgCmd("cat", cb_cat);
+    cmd_cat.setDescription("- Show contents of a file");
 
     cmd_freq = cli.addSingleArgCmd("freq", cb_freq);
     cmd_freq.setDescription("- Set the frequency");
@@ -145,6 +179,10 @@ void cli_init(void)
 
     cmd_model = cli.addSingleArgCmd("model", cb_model);
 
+    cmd_model_search = cli.addSingleArgCmd("model_search", cb_model_search);
+
+
+    Serial.println("CLI initialized. Type 'help' to view commands!");
 }
 
 void cli_parse(String input)

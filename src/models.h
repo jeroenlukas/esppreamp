@@ -43,5 +43,6 @@ class Model_t
 
 
 extern bool models_load(uint8_t id, Model_t* dest);
+extern bool model_search_yaml(String* dest, uint8_t id);
 
 #endif

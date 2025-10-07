@@ -6,6 +6,7 @@
 #include <Wire.h>
 #include <ESPAsyncWebServer.h>
 
+#include "defines.h"
 #include "config.h"
 
 #include "adau1701/adau1701.h"
@@ -20,9 +21,11 @@ static AsyncWebServer server(80);
 
 void setup() 
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   delay(500);
+
+  Serial.println("*** ESPPreamp v" + String(EP_VERSION) + " ***");
 
   // Init I2C
   Wire.begin();
@@ -36,7 +39,8 @@ void setup()
   // Init ADAU1701
   adau1701_init();
   
-  WiFi.mode(WIFI_STA);
+  Serial.println("Connecting to " + String(WIFI_SSID) + "...");
+  WiFi.mode(WIFI_STA);  
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED)
   {

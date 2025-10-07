@@ -9,6 +9,57 @@
 #define MIN 0
 #define MAX 1
 
+// Find model in models.yaml, by id
+bool model_search_yaml(String* dest, uint8_t id);
+
+// Convert Yaml string into Model_t
+Model_t model_from_yaml(String yaml);
+
+// Convert Model_t to Yaml string
+String model_to_yaml(Model_t model);
+
+bool model_search_yaml(String* dest, uint8_t id)
+{
+    // Read file contents
+    String yaml_models = filesystem_readfile("/models.yaml");
+
+    // Convert yaml to json
+    YAMLNode yamlnode = YAMLNode::loadString(yaml_models.c_str());
+    String json_str;
+    serializeYml(yamlnode.getDocument(), json_str, OUTPUT_JSON_PRETTY);
+
+    // Deserialize json
+    JsonDocument doc;
+    auto error = deserializeJson(doc, json_str);
+
+    if(error) {
+        Serial.printf("Unable to deserialize demo YAML to JsonObject: %s", error.c_str() );
+        return false;
+    }
+
+    // Parse as an array
+    JsonArray array = doc.as<JsonArray>();
+
+    // Search by id
+    for(JsonVariant v : array) 
+    {
+        if(v["id"].as<uint8_t>() == id)
+        {            
+            String json;
+            serializeJson(v, json);
+
+            String yaml;
+            YAMLNode yamlnode = YAMLNode::loadString(json.c_str());
+            serializeYml(yamlnode.getDocument(), yaml, OUTPUT_YAML);
+
+            *dest = (String)yaml;
+            return true;
+        }
+    }
+
+    return false;
+}
+
 // Return a model by id
 bool models_load(uint8_t id, Model_t* dest)
 {
@@ -21,7 +72,7 @@ bool models_load(uint8_t id, Model_t* dest)
     String json_str;
     serializeYml(yamlnode.getDocument(), json_str, OUTPUT_JSON_PRETTY);
 
-    Serial.println("JSON: " + json_str);
+    //Serial.println("JSON: " + json_str);
 
     auto error = deserializeJson(doc, json_str);
 
@@ -76,8 +127,7 @@ bool models_load(uint8_t id, Model_t* dest)
     }
 
     if(!found)
-    {
-        Serial.println("Could not find model!");
+    {        
         return false;
     }
 

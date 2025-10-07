@@ -15,21 +15,17 @@ void filesystem_init()
         Serial.println("LittleFS mounting failed!");
         return;
     }
+    Serial.println("LittleFS mounted OK");
 
-    // Read models
-    File file_models = LittleFS.open("/models.yaml");
-    if(!file_models)
-    {
-        Serial.println("Could not open file");
-        return;
-    }
+    // Check if required yaml files exist
+    if(!LittleFS.exists("/config.yaml"))
+        Serial.println("WARNING: /config.yaml does not exist!");
 
-    while(file_models.available())
-    {
-        Serial.write(file_models.read());
-    }
-    file_models.close();
-
+    if(!LittleFS.exists("/models.yaml"))
+        Serial.println("WARNING: /models.yaml does not exist!");
+    
+    if(!LittleFS.exists("/patches.yaml"))
+        Serial.println("WARNING: /patches.yaml does not exist!");
 }
 
 String filesystem_readfile(String filename)
