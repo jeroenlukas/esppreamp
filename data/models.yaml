@@ -5,7 +5,7 @@
     order: 2
   distortion: 
     enabled: true
-    gain: [-4, 4]
+    gain: [0, 3.2]
     alpha: 0.6
     asymmetry: 0.03
     volume: -5
@@ -29,18 +29,18 @@
     order: 2
   distortion: 
     enabled: true
-    gain: [-4, 4]
+    gain: [0, 6]
     alpha: 0.6
     asymmetry: 0.03
     volume: -5
   tonecontrol:
     low_cutoff_freq: 80
     low_order: 2
-    low: [-5, 2]
+    low: [-5, 5]
     mid: [-3, 3]
     mid_q: 1.0
     mid_freq: 700
-    high: [-1, 2]    
+    high: [-5, 5]    
   presence:
     cutoff_freq: [2000, 6000]
     order: 2
@@ -52,18 +52,18 @@
     order: 2
   distortion: 
     enabled: true
-    gain: [-4, 4]
+    gain: [0, 6]
     alpha: 0.6
     asymmetry: 0.03
     volume: -5
   tonecontrol:
     low_cutoff_freq: 80
     low_order: 2
-    low: [-5, 2]
+    low: [-5, 5]
     mid: [-3, 3]
     mid_q: 1.0
     mid_freq: 330
-    high: [-1, 2]    
+    high: [-5, 5]    
   presence:
     cutoff_freq: [2000, 6000]
     order: 2

@@ -9,15 +9,17 @@
 #define MIN 0
 #define MAX 1
 
+Model_t model_active;
+
 bool models_find(Model_t* dest, uint8_t id);
 
 String model_to_yaml(Model_t model);
-
-
 String model_to_json(Model_t model);
 
-// -----
+void model_activate(uint8_t id);
+void model_activate(Model_t model);
 
+// -----
 
 String model_to_yaml(Model_t model)
 {
@@ -183,4 +185,17 @@ bool models_find(Model_t* dest, uint8_t id)
     // Return model 
     *dest = (Model_t)model;
     return true;    
+}
+
+void model_activate(uint8_t id)
+{
+    Model_t model;
+    models_find(&model, id);
+    model_activate(model);
+}
+
+void model_activate(Model_t model)
+{
+    model_active = model;
+    Serial.println("Activate model #" + String(model.id) + " (" + model.name + ")");
 }

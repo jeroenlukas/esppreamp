@@ -13,6 +13,7 @@ void adau1701_set_testfreq(int frequency);
 void adau1701_set_gain(float gain);
 void adau1701_set_high(float high);
 void adau1701_set_low(float low);
+void adau1701_set_tonecontrol(float low, float high, float center_freq);
 
 void adau1701_init(void)
 {
@@ -48,6 +49,19 @@ void adau1701_set_gain(float gain)
     
 }
 
+void adau1701_set_tonecontrol(float low, float high, float center_freq)
+{
+    //Serial.println("Set high to " + String(high));
+    toneCtrl_t tone_ctl;
+    tone_ctl.boost_Bass_dB = low;
+    tone_ctl.boost_Treble_dB = high;
+    tone_ctl.freq_Bass = center_freq;
+    tone_ctl.freq_Treble = center_freq;
+    dsp.toneControl(MOD_POSTGAIN_PO_TONECONTROL_ALG0_STAGE0_B0_ADDR, tone_ctl);
+}
+
+
+/*
 void adau1701_set_high(float high)
 {
     Serial.println("Set high to " + String(high));
@@ -69,7 +83,7 @@ void adau1701_set_low(float low)
     tone_ctl.freq_Treble = 400;
     dsp.toneControl(MOD_POSTGAIN_PO_TONECONTROL_ALG0_STAGE0_B0_ADDR, tone_ctl);
 }
-
+*/
 void adau1701_set_testfreq(int frequency)
 {
     

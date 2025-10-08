@@ -16,3 +16,12 @@
   high: 60
   presence: 70
   volume: 75
+- id: 3
+  name: "Voxmann"
+  model_id: 3
+  gain: 60
+  low: 55
+  mid: 40
+  high: 60
+  presence: 70
+  volume: 75

@@ -98,9 +98,8 @@ void cb_gain(cmd* c)
     Command cmd(c);
     if(cmd.getArgument(0).isSet())
     {        
-        float gain = cmd.getArgument(0).getValue().toFloat();
-        
-        adau1701_set_gain(gain);
+        uint8_t gain = cmd.getArgument(0).getValue().toInt();
+        patch_update_gain(gain);
     }
 }
 
@@ -109,9 +108,8 @@ void cb_low(cmd* c)
     Command cmd(c);
     if(cmd.getArgument(0).isSet())
     {        
-        float low = cmd.getArgument(0).getValue().toFloat();
-        
-        adau1701_set_low(low);
+        uint8_t low = cmd.getArgument(0).getValue().toInt();
+        patch_update_low(low);
     }
 }
 
@@ -120,9 +118,8 @@ void cb_high(cmd* c)
     Command cmd(c);
     if(cmd.getArgument(0).isSet())
     {        
-        float high = cmd.getArgument(0).getValue().toFloat();
-        
-        adau1701_set_high(high);
+        uint8_t high = cmd.getArgument(0).getValue().toInt();        
+        patch_update_high(high);
     }
 }
 
@@ -158,7 +155,8 @@ void cb_model(cmd* c)
     else
     {
         // Actually load the model!
-        Serial.println("Loading model " + String(model.id) + ": " + model.name);
+        Serial.println("Activating model " + String(model.id) + ": " + model.name);
+        model_activate(model);
     }
 }
 
@@ -194,8 +192,9 @@ void cb_patch(cmd* c)
     }
     else
     {
-        // Actually load the model!
-        Serial.println("Loading patch " + String(patch.id) + ": " + patch.name);
+        // Actually load the patch!
+        Serial.println("Activating patch " + String(patch.id) + ": " + patch.name);
+        patch_activate(patch);
     }
 }
 
