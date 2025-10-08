@@ -3,6 +3,7 @@
 
 #include "../adau1701/adau1701.h"
 #include "../models.h"
+#include "../patches.h"
 #include "../filesystem/filesystem.h"
 
 SimpleCLI cli;
@@ -19,10 +20,11 @@ Command cmd_high;
 
 // Model
 Command cmd_model;
+Command cmd_patch;
 
 // Test
 Command cmd_freq;
-Command cmd_model_search;
+
 
 
 
@@ -127,33 +129,76 @@ void cb_high(cmd* c)
 void cb_model(cmd* c)
 {
     Command cmd(c);
-    if(cmd.getArgument(0).isSet())
+
+    Argument arg_id = cmd.getArgument("id");
+    Argument arg_show = cmd.getArgument("show");
+    Argument arg_json = cmd.getArgument("json");
+
+    Model_t model;
+
+    if(arg_id.isSet())
     {
-        Model_t model;
-        if(models_load(cmd.getArgument(0).getValue().toInt(), &model))
-        {            
-            Serial.println("Model id #" + String(model.id) + " is called " + model.name);
-            Serial.println("Gain range: " + String(model.dist_gain_db.min) +  " .. " + String(model.dist_gain_db.max));
-            Serial.println("Mid freq: " + String(model.mid_freq) + " Hz Mid Q: " + String(model.mid_q));
-            Serial.println("Presence range: " + String(model.presence_cutoff_freq.min) + " .. " + String(model.presence_cutoff_freq.max) + " Hz, " + String(model.presence_order) + " order");
+        models_find(&model, arg_id.getValue().toInt());        
+    }
+
+    if(arg_show.isSet())
+    {
+        // Only show the model, in json or yaml
+        if(arg_json.isSet())
+        {
+            String json = model_to_json(model);
+            Serial.println(json);
         }
         else
-            Serial.println("Error: model not found");
+        {
+            String yaml = model_to_yaml(model);
+            Serial.println(yaml);
+        }
+    }
+    else
+    {
+        // Actually load the model!
+        Serial.println("Loading model " + String(model.id) + ": " + model.name);
     }
 }
 
-void cb_model_search(cmd* c)
+
+void cb_patch(cmd* c)
 {
     Command cmd(c);
-    if(cmd.getArgument(0).isSet())
+
+    Argument arg_id = cmd.getArgument("id");
+    Argument arg_show = cmd.getArgument("show");
+    Argument arg_json = cmd.getArgument("json");
+
+    Patch_t patch;
+
+    if(arg_id.isSet())
     {
-        String test;
-        if(model_search_yaml(&test, cmd.getArg(0).getValue().toInt()))
+        patches_find(&patch, arg_id.getValue().toInt());        
+    }
+
+    if(arg_show.isSet())
+    {
+        // Only show the patch, in json or yaml
+        if(arg_json.isSet())
         {
-            Serial.println(test);
+            String json = patch_to_json(patch);
+            Serial.println(json);
+        }
+        else
+        {
+            String yaml = patch_to_yaml(patch);
+            Serial.println(yaml);
         }
     }
+    else
+    {
+        // Actually load the model!
+        Serial.println("Loading patch " + String(patch.id) + ": " + patch.name);
+    }
 }
+
 
 void cli_init(void)
 {
@@ -177,9 +222,23 @@ void cli_init(void)
     cmd_low = cli.addSingleArgCmd("low", cb_low);
     cmd_high = cli.addSingleArgCmd("high", cb_high);
 
-    cmd_model = cli.addSingleArgCmd("model", cb_model);
+    cmd_model = cli.addCmd("model", cb_model);
+    cmd_model.addPositionalArgument("id", "0");
+    cmd_model.addFlagArgument("show");
+    cmd_model.addFlagArgument("json");
 
-    cmd_model_search = cli.addSingleArgCmd("model_search", cb_model_search);
+    cmd_patch = cli.addCmd("patch", cb_patch);
+    cmd_patch.addPositionalArgument("id", "0");
+    cmd_patch.addFlagArgument("show");
+    cmd_patch.addFlagArgument("json");
+
+    // model 1                  Load model 1
+    // model -id 1 -show
+    // model 1 -show            Show model 1 yaml
+    // model 1 -show -json      Show model 1 in json 
+
+
+    //cmd_model_search = cli.addSingleArgCmd("model_search", cb_model_search);
 
 
     Serial.println("CLI initialized. Type 'help' to view commands!");

@@ -9,15 +9,64 @@
 #define MIN 0
 #define MAX 1
 
-// Find model in models.yaml, by id
-bool model_search_yaml(String* dest, uint8_t id);
+bool models_find(Model_t* dest, uint8_t id);
 
-// Convert Yaml string into Model_t
-Model_t model_from_yaml(String yaml);
-
-// Convert Model_t to Yaml string
 String model_to_yaml(Model_t model);
 
+
+String model_to_json(Model_t model);
+
+// -----
+
+
+String model_to_yaml(Model_t model)
+{
+    // Use model_to_json, then convert json to yaml
+    String json;
+    json = model_to_json(model);
+
+    String yaml;
+    YAMLNode yamlnode = YAMLNode::loadString(json.c_str());
+    serializeYml(yamlnode.getDocument(), yaml, OUTPUT_YAML);
+    return yaml;
+}
+
+
+String model_to_json(Model_t model)
+{
+    JsonDocument doc;
+
+    doc["name"] = model.name;
+    doc["id"] = model.id;
+    doc["pre"]["cutoff_freq"] = model.pre_cutoff_freq;
+    doc["pre"]["order"] = model.pre_order;
+    doc["distortion"]["enabled"] = model.dist_enabled;
+    doc["distortion"]["gain"][MIN] = model.dist_gain_db.min;
+    doc["distortion"]["gain"][MAX] = model.dist_gain_db.max;
+    doc["distortion"]["alpha"] = model.dist_alpha;
+    doc["distortion"]["asymmetry"] = model.dist_asymmetry;
+    doc["distortion"]["volume"] = model.dist_volume;
+    doc["tonecontrol"]["low_cutoff_freq"] = model.low_cutoff_freq;
+    doc["tonecontrol"]["low_order"] = model.low_order;
+    doc["tonecontrol"]["low"][MIN] = model.low_db.min;
+    doc["tonecontrol"]["low"][MAX] = model.low_db.max;
+    doc["tonecontrol"]["mid"][MIN] = model.mid_db.min;
+    doc["tonecontrol"]["mid"][MAX] = model.mid_db.max;
+    doc["tonecontrol"]["mid_q"] = model.mid_q;
+    doc["tonecontrol"]["mid_freq"] = model.mid_freq;
+    doc["tonecontrol"]["high"][MIN] = model.high_db.min;
+    doc["tonecontrol"]["high"][MAX] = model.high_db.max;
+    doc["presence"]["cutoff_freq"][MIN] = model.presence_cutoff_freq.min;
+    doc["presence"]["cutoff_freq"][MAX] = model.presence_cutoff_freq.max;
+    doc["presence"]["order"] = model.presence_order;
+        
+    String json;
+    serializeJson(doc, json);   
+
+    return json;
+}
+
+/*
 bool model_search_yaml(String* dest, uint8_t id)
 {
     // Read file contents
@@ -58,10 +107,10 @@ bool model_search_yaml(String* dest, uint8_t id)
     }
 
     return false;
-}
+}*/
 
-// Return a model by id
-bool models_load(uint8_t id, Model_t* dest)
+// Return a Model_t by id
+bool models_find(Model_t* dest, uint8_t id)
 {
     Model_t model;
 

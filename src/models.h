@@ -42,7 +42,10 @@ class Model_t
 
 
 
-extern bool models_load(uint8_t id, Model_t* dest);
-extern bool model_search_yaml(String* dest, uint8_t id);
+//extern bool models_load(uint8_t id, Model_t* dest);
+//extern bool model_search_yaml(String* dest, uint8_t id);
+extern String model_to_json(Model_t model);
+extern String model_to_yaml(Model_t model);
+extern bool models_find(Model_t* dest, uint8_t id);
 
 #endif

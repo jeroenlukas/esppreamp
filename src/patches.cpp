@@ -1,32 +1,95 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
+#include <YAMLDuino.h>
 
 #include "patches.h"
+#include "filesystem/filesystem.h"
 
-Patch patch_active;
+Patch_t patch_active;
 
-void patches_init(void)
+bool patches_find(Patch_t* dest, uint8_t id);
+String patch_to_json(Patch_t patch);
+String patch_to_yaml(Patch_t patch);
+
+String patch_to_yaml(Patch_t patch)
 {
-    
+    // Use patch_to_json, then convert json to yaml
+    String json;
+    json = patch_to_json(patch);
+
+    String yaml;
+    YAMLNode yamlnode = YAMLNode::loadString(json.c_str());
+    serializeYml(yamlnode.getDocument(), yaml, OUTPUT_YAML);
+    return yaml;
 }
 
-// Load patch settings into the active patch
-void patches_load(uint8_t index)
+String patch_to_json(Patch_t patch)
 {
-    patch_active.index = index;
-    patch_active.name = "Clean";
+    JsonDocument doc;
 
-    patch_active.model_index = 1;
-
-    patch_active.gain = 20;
-    patch_active.low = 50;
-    patch_active.mid = 20;
-    patch_active.high = 70;
+    doc["name"] = patch.name;
+    doc["id"] = patch.id;
+    doc["model_id"] = patch.model_id;
+    doc["gain"] = patch.gain;
+    doc["low"] = patch.low;
+    doc["mid"] = patch.mid;
+    doc["high"] = patch.high;
+    doc["presence"] = patch.presence;
+    doc["volume"] = patch.volume;
     
-    patch_active.presence = 80;
-    patch_active.volume = 70;
+    String json;
+    serializeJson(doc, json);   
+
+    return json;
 }
 
-void patch_activate(void)
+bool patches_find(Patch_t* dest, uint8_t id)
 {
+    Patch_t patch;
 
+    JsonDocument doc;
+    String yaml_patches = filesystem_readfile("/patches.yaml");
+
+    YAMLNode yamlnode = YAMLNode::loadString(yaml_patches.c_str());
+    String json_str;
+    serializeYml(yamlnode.getDocument(), json_str, OUTPUT_JSON_PRETTY);
+
+    auto error = deserializeJson(doc, json_str);
+
+    if(error) {
+        Serial.printf("Unable to deserialize demo YAML to JsonObject: %s", error.c_str() );
+        return false;
+    }
+
+    JsonArray array = doc.as<JsonArray>();
+
+    bool found = false;
+
+    // Iterate through the array of patches
+    for(JsonVariant v : array) 
+    {
+        if(v["id"].as<uint8_t>() == id)
+        {            
+            // Model found, copy values to Model_t object
+            found = true;
+            patch.name = v["name"].as<String>();
+            patch.id = id;
+            patch.model_id = v["model_id"];
+            patch.gain = v["gain"];
+            patch.low = v["low"];
+            patch.mid = v["mid"];
+            patch.high = v["high"];
+            patch.presence = v["presence"];
+            patch.volume = v["volume"];           
+        }
+    }
+
+    if(!found)
+    {        
+        return false;
+    }
+
+    // Return model 
+    *dest = (Patch_t)patch;
+    return true;    
 }
