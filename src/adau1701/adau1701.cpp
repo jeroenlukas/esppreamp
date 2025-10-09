@@ -22,28 +22,36 @@ void adau1701_init(void)
     //
     dsp.begin();
 
-    Serial.println(F("Pinging i2c lines...\n0 -> deveice is present\n2 -> device is not present"));
-    Serial.print(F("DSP response: "));
-    Serial.println(dsp.ping());
-    //Serial.print(F("EEPROM ping: "));
-    //Serial.println(ee.ping());
+    Serial.println(F("Pinging ADAU1701..."));
+    if(dsp.ping() == 0)
+    {
+        Serial.println("OK");
+    }
+    else Serial.println("Could not find DSP!");
     
-    
-    // Use this step if no EEPROM is present
-    Serial.print(F("\nLoading DSP program... "));
+    Serial.print(F("Loading DSP algo..."));
+
     loadProgram(dsp);
-    Serial.println("Done!\n");  
+
+    Serial.println("Done");  
 }
 
-void adau1701_set_gain(float gain)
+void adau1701_set_gain(float gain_db)
 {
-    Serial.println("Set gain to " + String(gain));
+    if(gain_db > 72.0)
+    {
+        gain_db = 72.0;
+    }
+    Serial.println("Set gain to " + String(gain_db));
     //dsp.volume(MOD_DSPDISTORTION_VOLUME_GAIN1940ALGNS4_ADDR, gain);
     // enable dist
+    // Actually the total gain of 72 dB is spread accross 3 gain stages with 24 dB max gain
+    double gain_divided = pow(10, gain_db/3 / 20);
+
     dsp.safeload_write(MOD_DSPDISTORTION_BYPASS_ALG0_MONOSWSLEW_ADDR, 0);
-    dsp.gain(MOD_DSPDISTORTION_GAIN1_GAIN1940ALGNS3_ADDR, gain);
-    dsp.gain(MOD_DSPDISTORTION_GAIN2_GAIN1940ALGNS5_ADDR, gain);
-    dsp.gain(MOD_DSPDISTORTION_GAIN3_GAIN1940ALGNS6_ADDR, gain);
+    dsp.gain(MOD_DSPDISTORTION_GAIN1_GAIN1940ALGNS3_ADDR, gain_divided);
+    dsp.gain(MOD_DSPDISTORTION_GAIN2_GAIN1940ALGNS5_ADDR, gain_divided);
+    dsp.gain(MOD_DSPDISTORTION_GAIN3_GAIN1940ALGNS6_ADDR, gain_divided);
     //dsp.volume_slew(MOD_PO_VOLUME_ALG0_TARGET_ADDR, gain, 12);
     
     
@@ -60,6 +68,20 @@ void adau1701_set_tonecontrol(float low, float high, float center_freq)
     dsp.toneControl(MOD_POSTGAIN_PO_TONECONTROL_ALG0_STAGE0_B0_ADDR, tone_ctl);
 }
 
+// todo add q?
+void adau1701_set_mid(float mid_db, float center_freq, float q)
+{
+    secondOrderEQ_t eq;
+
+    eq.filterType = parameters::filterType::peaking;
+    eq.boost = mid_db;
+    eq.Q = q;
+    eq.freq = center_freq;
+
+    Serial.println("[ADAU1701] set mid to " + String(mid_db) + " db, freq=" + String(center_freq) + " Hz, Q=" + String(q));
+    dsp.EQsecondOrder(MOD_POSTGAIN_MID1_ALG0_STAGE0_B0_ADDR, eq);
+    dsp.EQsecondOrder(MOD_POSTGAIN_MID2_ALG0_STAGE0_B0_ADDR, eq);
+}
 
 /*
 void adau1701_set_high(float high)

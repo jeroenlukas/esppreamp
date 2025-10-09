@@ -1,24 +1,24 @@
 - name: FenderClean
   id: 1
   pre:
-    cutoff_freq: 80
+    cutoff_freq: 500
     order: 2
   distortion: 
     enabled: true
-    gain: [0, 3.2]
-    alpha: 0.6
-    asymmetry: 0.03
-    volume: -5
+    gain: [0, 20]
+    alpha: 0.9
+    asymmetry: 0.25
+    volume: -1
   tonecontrol:
     low_cutoff_freq: 80
     low_order: 2
-    low: [-5, 2]
-    mid: [-3, 3]
-    mid_q: 1.0
+    low: [-10, 10]
+    mid: [-20, 10]
+    mid_q: 0.7
     mid_freq: 450
-    high: [-1, 2]    
+    high: [-5, 18]    
   presence:
-    cutoff_freq: [2000, 6000]
+    cutoff_freq: [3000, 8000]
     order: 2
 
   
@@ -45,25 +45,25 @@
     cutoff_freq: [2000, 6000]
     order: 2
   
-- name: Voxpop
+- name: HighGain
   id: 3
   pre:
-    cutoff_freq: 80
-    order: 2
+    cutoff_freq: 500
+    order: 1
   distortion: 
     enabled: true
-    gain: [0, 6]
-    alpha: 0.6
-    asymmetry: 0.03
-    volume: -5
+    gain: [10, 72]
+    alpha: 0.3
+    asymmetry: 0.15
+    volume: -6
   tonecontrol:
     low_cutoff_freq: 80
     low_order: 2
-    low: [-5, 5]
-    mid: [-3, 3]
-    mid_q: 1.0
-    mid_freq: 330
-    high: [-5, 5]    
+    low: [-9, 15]
+    mid: [-20, 7]
+    mid_q: 0.9
+    mid_freq: 450
+    high: [-10, 10]    
   presence:
-    cutoff_freq: [2000, 6000]
-    order: 2
+    cutoff_freq: [5000, 8000]
+    order: 3

@@ -230,6 +230,8 @@ void cli_init(void)
     cmd_patch.addPositionalArgument("id", "0");
     cmd_patch.addFlagArgument("show");
     cmd_patch.addFlagArgument("json");
+    cmd_patch.addPositionalArgument("high", "50");
+    cmd_patch.addPositionalArgument("mid", "50");
 
     // model 1                  Load model 1
     // model -id 1 -show

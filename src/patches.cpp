@@ -145,6 +145,13 @@ void patch_update_high(uint8_t perc)
     adau1701_set_tonecontrol(low, high, model_active.mid_freq);
 }
 
+void patch_update_mid(uint8_t perc)
+{
+    patch_active.mid = perc;
+    float mid = map_percent_to_float(model_active.mid_db.min, model_active.mid_db.max, patch_active.mid);
+    adau1701_set_mid(mid, model_active.mid_freq, model_active.mid_q);
+}
+
 void patch_activate(Patch_t patch)
 {
     Serial.println("Activate patch #" + String(patch.id) + " (" + patch.name + ")");
@@ -159,6 +166,7 @@ void patch_activate(Patch_t patch)
     patch_update_gain(patch_active.gain);
     patch_update_low(patch_active.low);
     patch_update_high(patch_active.high);
+    patch_update_mid(patch_active.mid);
     // ...
 
 
