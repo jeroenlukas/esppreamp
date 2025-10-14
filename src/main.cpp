@@ -5,6 +5,7 @@
 
 #include <Wire.h>
 #include <ESPAsyncWebServer.h>
+#include <Ticker.h>
 
 #include "defines.h"
 #include "config.h"
@@ -18,7 +19,15 @@
 
 static AsyncWebServer server(80);
 
+bool level_detect_in = false;
 
+bool flag_level_in = false;
+Ticker ticker_level_ref;
+
+void ticker_level()
+{
+  flag_level_in = true;
+}
 
 void setup() 
 {
@@ -64,6 +73,7 @@ void setup()
   // Load patch 1 by default
   patch_activate(1);
 
+  ticker_level_ref.attach(0.2, ticker_level);
 
 }
 
@@ -73,5 +83,11 @@ void loop()
   cli_handle();
 
   //adau1701_readsignalin();
+  if(level_detect_in && flag_level_in)
+  {
+    flag_level_in = false;
+    int32_t input = adau1701_read_signal_in();
+    Serial.println("IN: "  + String(input));
+  }
 
 }

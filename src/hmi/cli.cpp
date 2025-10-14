@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <SimpleCLI.h>
 
+#include "../main.h"
+
 #include "../adau1701/adau1701.h"
 #include "../defines.h"
 #include "../models.h"
@@ -13,6 +15,8 @@ SimpleCLI cli;
 Command cmd_reset;
 Command cmd_help;
 Command cmd_cat;
+
+Command cmd_level;
 
 // DSP
 Command cmd_gain;
@@ -187,6 +191,13 @@ void cb_enable(cmd* c)
     }
 }
 
+void cb_level(cmd* c)
+{
+    Command cmd(c);
+
+    level_detect_in = true;
+}
+
 void cb_model(cmd* c)
 {
     Command cmd(c);
@@ -319,6 +330,8 @@ void cli_init(void)
     cmd_enable = cli.addSingleArgCmd("enable", cb_enable);
     cmd_disable = cli.addSingleArgCmd("disable", cb_disable);
 
+    cmd_level = cli.addSingleArgCmd("level", cb_level);
+
     Serial.println("CLI initialized. Type 'help' to view commands!");
 }
 
@@ -333,6 +346,10 @@ void cli_handle(void)
     {
         static char commandbuffer[100] = "";
         static uint8_t commandbuffer_idx = 0;
+
+        // Do stuff on any keypress
+        // Disable level detect
+        level_detect_in = false;
 
         char inp = Serial.read();
         Serial.print('\r');

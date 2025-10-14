@@ -205,10 +205,10 @@ void model_activate(Model_t model)
 
     // Set model-related things
     adau1701_set_pre_cutoff_freq(model_active.pre_cutoff_freq);
-    adau1701_set_pre_order(model_active.pre_order);
-
+    //adau1701_set_pre_order(model_active.pre_order);
+    
     adau1701_set_distortion_alpha(model_active.dist_alpha);
-    adau1701_set_distortion_asymmetry(model_active.dist_asymmetry);
+    //adau1701_set_distortion_asymmetry(model_active.dist_asymmetry);
     adau1701_set_distortion_volume(model_active.dist_volume);
 
 }

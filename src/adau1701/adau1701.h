@@ -4,6 +4,8 @@
 extern void adau1701_init(void);
 extern void adau1701_set_testfreq(int frequency);
 
+extern int32_t adau1701_read_signal_in(void);
+
 // Patch related
 extern void adau1701_set_gain(float gain);
 extern void adau1701_set_high(float high);

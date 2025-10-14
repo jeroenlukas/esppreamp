@@ -101,9 +101,9 @@ void adau1701_set_volume(float volume_dB)
 
 void adau1701_set_distortion_volume(float volume_db)
 {
-    float volume_fac = pow(10, volume_db / 20);
+    float volume_fac = pow(10, volume_db / 20); // ???
     Serial.println("Set distortion_volume to " + String(volume_db) + " -> " + String(volume_fac ));
-    dsp.volume_slew(MOD_DSPDISTORTION_VOLUME_GAIN1940ALGNS4_ADDR, volume_fac);
+    dsp.volume(MOD_DSPDISTORTION_VOLUME_GAIN1940ALGNS4_ADDR, volume_db);
 }
 
 void adau1701_set_pre_cutoff_freq(float freq)
@@ -185,9 +185,10 @@ void adau1701_set_bypass(bool bypass, uint8_t block)
     }
 }
 
-float adau1701_read_signal_in(void)
+int32_t adau1701_read_signal_in(void)
 {
     //dsp.readBack()
+    return dsp.readBack(MOD_READBACK_INPUT_ALG0_VAL0_ADDR, MOD_READBACK_INPUT_ALG0_VAL0_VALUES, 3);
 }
 
 /*
