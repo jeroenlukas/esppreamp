@@ -14,6 +14,7 @@
 #include "hmi/cli.h"
 #include "filesystem/filesystem.h"
 #include "models.h"
+#include "patches.h"
 
 static AsyncWebServer server(80);
 
@@ -41,6 +42,7 @@ void setup()
   
   Serial.println("Connecting to " + String(WIFI_SSID) + "...");
   WiFi.mode(WIFI_STA);  
+  WiFi.disconnect();
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED)
   {
@@ -59,6 +61,9 @@ void setup()
   server.begin();
   Serial.println("begin");
 
+  // Load patch 1 by default
+  patch_activate(1);
+
 
 }
 
@@ -66,5 +71,7 @@ void setup()
 void loop() 
 { 
   cli_handle();
+
+  //adau1701_readsignalin();
 
 }

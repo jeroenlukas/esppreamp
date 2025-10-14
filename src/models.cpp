@@ -3,6 +3,7 @@
 #include <YAMLDuino.h>
 
 #include "models.h"
+#include "adau1701/adau1701.h"
 
 #include "filesystem/filesystem.h"
 
@@ -187,6 +188,7 @@ bool models_find(Model_t* dest, uint8_t id)
     return true;    
 }
 
+// Model-specific settings go here
 void model_activate(uint8_t id)
 {
     Model_t model;
@@ -198,4 +200,15 @@ void model_activate(Model_t model)
 {
     model_active = model;
     Serial.println("Activate model #" + String(model.id) + " (" + model.name + ")");
+
+    float volume_db;
+
+    // Set model-related things
+    adau1701_set_pre_cutoff_freq(model_active.pre_cutoff_freq);
+    adau1701_set_pre_order(model_active.pre_order);
+
+    adau1701_set_distortion_alpha(model_active.dist_alpha);
+    adau1701_set_distortion_asymmetry(model_active.dist_asymmetry);
+    adau1701_set_distortion_volume(model_active.dist_volume);
+
 }

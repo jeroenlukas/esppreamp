@@ -152,6 +152,13 @@ void patch_update_mid(uint8_t perc)
     adau1701_set_mid(mid, model_active.mid_freq, model_active.mid_q);
 }
 
+void patch_update_volume(uint8_t perc)
+{
+    patch_active.volume = perc;
+    float vol = map_percent_to_float(-24, 0, perc);
+    adau1701_set_volume(vol);
+}
+
 void patch_activate(Patch_t patch)
 {
     Serial.println("Activate patch #" + String(patch.id) + " (" + patch.name + ")");
@@ -167,6 +174,8 @@ void patch_activate(Patch_t patch)
     patch_update_low(patch_active.low);
     patch_update_high(patch_active.high);
     patch_update_mid(patch_active.mid);
+
+    patch_update_volume(patch_active.volume);
     // ...
 
 
