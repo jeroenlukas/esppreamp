@@ -34,5 +34,6 @@ extern void patch_update_gain(uint8_t perc);
 extern void patch_update_low(uint8_t perc);
 extern void patch_update_high(uint8_t perc);
 extern void patch_update_mid(uint8_t perc);
+extern void patch_update_volume(uint8_t perc);
 
 #endif

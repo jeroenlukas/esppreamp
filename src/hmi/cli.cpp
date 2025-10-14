@@ -2,6 +2,7 @@
 #include <SimpleCLI.h>
 
 #include "../adau1701/adau1701.h"
+#include "../defines.h"
 #include "../models.h"
 #include "../patches.h"
 #include "../filesystem/filesystem.h"
@@ -16,11 +17,17 @@ Command cmd_cat;
 // DSP
 Command cmd_gain;
 Command cmd_low;
+Command cmd_mid;
 Command cmd_high;
+Command cmd_volume;
 
 // Model
 Command cmd_model;
 Command cmd_patch;
+
+// Bypass blocks
+Command cmd_disable;
+Command cmd_enable;
 
 // Test
 Command cmd_freq;
@@ -88,9 +95,7 @@ void cb_freq(cmd* c)
         int freq = cmd.getArgument(0).getValue().toInt();
         Serial.println("Set freq to " + String(freq) + " Hz");
         adau1701_set_testfreq(freq);
-    }
-
-    
+    }   
 }
 
 void cb_gain(cmd* c)
@@ -120,6 +125,65 @@ void cb_high(cmd* c)
     {        
         uint8_t high = cmd.getArgument(0).getValue().toInt();        
         patch_update_high(high);
+    }
+}
+
+void cb_mid(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {
+        uint8_t mid = cmd.getArgument(0).getValue().toInt();
+        patch_update_mid(mid);
+    }
+}
+
+void cb_volume(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {
+        uint8_t volume = cmd.getArgument(0).getValue().toInt();
+        patch_update_volume(volume);
+    }
+}
+
+void cb_disable(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {
+        String arg = cmd.getArgument(0).getValue();
+        Serial.println("Bypass block " + arg);
+        if(arg == "pre")
+            adau1701_set_bypass(true, BYPASS_PREGAIN);
+        else if(arg == "dist")
+            adau1701_set_bypass(true, BYPASS_DISTORTION);
+        else if(arg == "post")
+            adau1701_set_bypass(true, BYPASS_POSTGAIN);
+        else
+        {
+            Serial.println("Options: pre - dist - post");
+        }
+    }
+}
+void cb_enable(cmd* c)
+{
+    Command cmd(c);
+    if(cmd.getArgument(0).isSet())
+    {
+        String arg = cmd.getArgument(0).getValue();
+        Serial.println("UnBypass block " + arg);
+        if(arg == "pre")
+            adau1701_set_bypass(false, BYPASS_PREGAIN);
+        else if(arg == "dist")
+            adau1701_set_bypass(false, BYPASS_DISTORTION);
+        else if(arg == "post")
+            adau1701_set_bypass(false, BYPASS_POSTGAIN);
+        else
+        {
+            Serial.println("Options: pre - dist - post");
+        }
     }
 }
 
@@ -175,6 +239,11 @@ void cb_patch(cmd* c)
     {
         patches_find(&patch, arg_id.getValue().toInt());        
     }
+    else
+    {
+        // If patch is not specified, use the active patch
+        patch = patch_active;
+    }
 
     if(arg_show.isSet())
     {
@@ -195,6 +264,9 @@ void cb_patch(cmd* c)
         // Actually load the patch!
         Serial.println("Activating patch " + String(patch.id) + ": " + patch.name);
         patch_activate(patch);
+
+        // Also show patch settings
+        cli_parse("patch -show");
     }
 }
 
@@ -219,7 +291,10 @@ void cli_init(void)
     cmd_gain.setDescription("- Set the gain");
 
     cmd_low = cli.addSingleArgCmd("low", cb_low);
+    cmd_mid = cli.addSingleArgCmd("mid", cb_mid);
     cmd_high = cli.addSingleArgCmd("high", cb_high);
+    cmd_volume = cli.addSingleArgCmd("volume", cb_volume);
+    
 
     cmd_model = cli.addCmd("model", cb_model);
     cmd_model.addPositionalArgument("id", "0");
@@ -241,6 +316,8 @@ void cli_init(void)
 
     //cmd_model_search = cli.addSingleArgCmd("model_search", cb_model_search);
 
+    cmd_enable = cli.addSingleArgCmd("enable", cb_enable);
+    cmd_disable = cli.addSingleArgCmd("disable", cb_disable);
 
     Serial.println("CLI initialized. Type 'help' to view commands!");
 }

@@ -1,7 +1,7 @@
 - name: FenderClean
   id: 1
   pre:
-    cutoff_freq: 500
+    cutoff_freq: 50
     order: 2
   distortion: 
     enabled: true
@@ -49,7 +49,7 @@
   id: 3
   pre:
     cutoff_freq: 500
-    order: 1
+    order: 4
   distortion: 
     enabled: true
     gain: [10, 72]
