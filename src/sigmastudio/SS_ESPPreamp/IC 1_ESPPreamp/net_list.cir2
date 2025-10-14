@@ -1,0 +1,34 @@
+0 DCInpAlg1 O_C26_A0_P1_out Link5
+1 ICSigma100In1 O_C0_A0_P1_out Link29
+2 Gain1940AlgNS1 I_C14_A0_P1_in Link29 O_C14_A0_P2_out Link25
+3 MonoEnvelopeAccuratePeakAlg1 I_C211_A0_P1_in Link29 O_C211_A0_P2_out Link14
+4 ReadBackAlg1 I_C17_A0_P1_in Link14
+5 FistOrderSingle3 I_C79_A0_P1_in Link25 O_C79_A0_P2_out Link26
+6 FistOrderSingle4 I_C84_A0_P1_in Link26 O_C84_A0_P2_out Link27
+7 FistOrderSingle7 I_C176_A0_P1_in Link27 O_C176_A0_P2_out Link28
+8 FistOrderSingle8 I_C190_A0_P1_in Link28 O_C190_A0_P2_out Link11
+9 monoMuxSwSlew4 I_C122_A0_P2_in Link26 I_C122_A0_P3_in Link27 I_C122_A0_P4_in Link28 I_C122_A0_P5_in Link11 O_C122_A0_P1_out Link12
+10 monomux1940ns2 I_C178_A0_P2_in Link12 I_C178_A0_P3_in Link25 O_C178_A0_P1_out Link23
+11 Gain1940AlgNS3 I_C163_A0_P1_in Link23 O_C163_A0_P2_out Link3
+12 Gain1940AlgNS5 I_C325_A0_P1_in Link3 O_C325_A0_P2_out Link8
+13 Gain1940AlgNS6 I_C64_A0_P1_in Link8 O_C64_A0_P2_out Link9
+14 NxNMixer1940Alg1 I_C45_A0_P2_in Link5 I_C45_A0_P3_in Link9 O_C45_A0_P1_out Link4
+15 SoftClipAlgG21 I_C156_A0_P1_in Link4 O_C156_A0_P2_out Link6
+16 DCBlockAlgDoublePrec1 I_C66_A0_P1_in Link6 O_C66_A0_P2_out Link7
+17 Gain1940AlgNS4 I_C169_A0_P1_in Link7 O_C169_A0_P2_out Link10
+18 monomux1940ns1 I_C272_A0_P2_in Link10 I_C272_A0_P3_in Link23 O_C272_A0_P1_out Link24
+19 SWGain1940DBAlg1 I_C39_A0_P1_in Link24 O_C39_A0_P2_out Link22
+20 EQ1940Single2 I_C229_A0_P1_in Link22 O_C229_A0_P2_out Link1
+21 EQ1940Single3 I_C232_A0_P1_in Link1 O_C232_A0_P2_out Link2
+22 EQ1940SingleS4 I_C257_A0_P1_in Link2 O_C257_A0_P2_out Link16
+23 FistOrderSingle1 I_C13_A0_P1_in Link16 O_C13_A0_P2_out Link17
+24 FistOrderSingle2 I_C28_A0_P1_in Link17 O_C28_A0_P2_out Link18
+25 FistOrderSingle5 I_C102_A0_P1_in Link18 O_C102_A0_P2_out Link20
+26 FistOrderSingle6 I_C38_A0_P1_in Link20 O_C38_A0_P2_out Link0
+27 monoMuxSwSlew3 I_C144_A0_P2_in Link17 I_C144_A0_P3_in Link18 I_C144_A0_P4_in Link20 I_C144_A0_P5_in Link0 O_C144_A0_P1_out Link19
+28 monomux1940ns3 I_C260_A0_P2_in Link19 I_C260_A0_P3_in Link22 O_C260_A0_P1_out Link21
+29 SWGain1940DBAlg2 I_C133_A0_P1_in Link21 O_C133_A0_P2_out Link13
+30 Gain1940AlgNS7 I_C58_A0_P1_in Link13 O_C58_A0_P2_out Link30
+31 ICSigma100Out2 I_C24_A0_P1_in Link30
+32 MonoEnvelopeAccuratePeakAlg2 I_C251_A0_P1_in Link30 O_C251_A0_P2_out Link15
+33 ReadBackAlg2 I_C245_A0_P1_in Link15

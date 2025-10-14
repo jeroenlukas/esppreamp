@@ -1,8 +1,8 @@
 /*
- * File:           C:\Users\Jeroen\Jottacloud\DIY\Elektronica\ESPPreamp\Software\esppreamp\src\sigmastudio\export\ESPPreamp_IC_2_REG.h
+ * File:           D:\Git\esppreamp\src\sigmastudio\SS_ESPPreamp\export\ESPPreamp_IC_2.h
  *
- * Created:        Saturday, October 4, 2025 5:57:10 PM
- * Description:    ESPPreamp:IC 2 control register definitions.
+ * Created:        Tuesday, October 14, 2025 9:11:03 PM
+ * Description:    ESPPreamp:IC 2 program data.
  *
  * This software is distributed in the hope that it will be useful,
  * but is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -16,8 +16,23 @@
  *
  * Copyright ©2025 Analog Devices, Inc. All rights reserved.
  */
-#ifndef __ESPPREAMP_IC_2_REG_H__
-#define __ESPPREAMP_IC_2_REG_H__
+#ifndef __ESPPREAMP_IC_2_H__
+#define __ESPPREAMP_IC_2_H__
 
+#include "SigmaStudioFW.h"
+#include "ESPPreamp_IC_2_REG.h"
+
+#define DEVICE_ARCHITECTURE_IC_2                  "E2Prom"
+#define DEVICE_ADDR_IC_2                          0xA0
+
+
+
+/*
+ * Default Download
+ */
+#define DEFAULT_DOWNLOAD_SIZE_IC_2 0
+
+void default_download_IC_2() {
+}
 
 #endif

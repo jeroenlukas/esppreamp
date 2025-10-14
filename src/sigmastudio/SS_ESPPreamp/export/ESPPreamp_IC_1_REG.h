@@ -1,7 +1,7 @@
 /*
- * File:           C:\Users\Jeroen\Jottacloud\DIY\Elektronica\ESPPreamp\Software\esppreamp\src\sigmastudio\export\ESPPreamp_IC_1_REG.h
+ * File:           D:\Git\esppreamp\src\sigmastudio\SS_ESPPreamp\export\ESPPreamp_IC_1_REG.h
  *
- * Created:        Saturday, October 4, 2025 5:57:10 PM
+ * Created:        Tuesday, October 14, 2025 9:11:03 PM
  * Description:    ESPPreamp:IC 1 control register definitions.
  *
  * This software is distributed in the hope that it will be useful,
